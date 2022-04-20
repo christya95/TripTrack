@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var databaseName: String? = "UserDB.db"
     var databasePath: String?
     var userList: [User] = []
+    var locationSelected: String?
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

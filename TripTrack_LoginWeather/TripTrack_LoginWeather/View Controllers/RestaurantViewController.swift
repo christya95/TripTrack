@@ -1,14 +1,15 @@
 //
-//  HotelViewController.swift
-//  TripTrack_LoginWeather
+//  RestaurantViewController.swift
+//  TripTrack
 //
-//  Created by Rob C on 2022-04-20.
+//  Created by Dan Di Clemente on 2022-04-20.
 //
 
 import UIKit
 import WebKit
 
-class HotelViewController: UIViewController, WKNavigationDelegate {
+class RestaurantViewController: UIViewController, WKNavigationDelegate {
+
     @IBOutlet var webPage : WKWebView!
     @IBOutlet var activity : UIActivityIndicatorView!
     
@@ -18,6 +19,8 @@ class HotelViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet var btnNews : UIBarButtonItem!
     @IBOutlet var btnFood : UIBarButtonItem!
     @IBOutlet var btnAttractions : UIBarButtonItem!
+    
+    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         activity.isHidden = false
@@ -29,35 +32,35 @@ class HotelViewController: UIViewController, WKNavigationDelegate {
         activity.stopAnimating()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //searchbar.delegate = self
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
-        let urlAddress = URL(string: "https://www.trivago.ca")
+        let urlAddress = URL(string: "https://www.yelp.ca")
         let url = URLRequest(url: urlAddress!)
-        webPage.load(url)
+        webPage?.load(url)
         webPage.navigationDelegate = self
     }
-
-    @IBAction func onRestaurantButtonClick() {
-        performSegue(withIdentifier: "hotelToRestaurants", sender: self)
-    }
+    
     
     @IBAction func onNewsButtonClick() {
-        performSegue(withIdentifier: "hotelToNews", sender: self)
+        performSegue(withIdentifier: "restaurantToNews", sender: self)
     }
     
     @IBAction func onWeatherButtonClick() {
-        performSegue(withIdentifier: "hotelToWeather", sender: self)
+        performSegue(withIdentifier: "restaurantToWeather", sender: self)
     }
     
     @IBAction func onFlightsButtonClick() {
-        performSegue(withIdentifier: "hotelToFlights", sender: self)
+        performSegue(withIdentifier: "restaurantToFlights", sender: self)
     }
     
     @IBAction func onAttractionsButtonClick() {
-        performSegue(withIdentifier: "hotelToAttractions", sender: self)
+        performSegue(withIdentifier: "restaurantToAttractions", sender: self)
     }
     
+    @IBAction func onHotelsButtonClick() {
+        performSegue(withIdentifier: "restaurantToHotels", sender: self)
+    }
 }

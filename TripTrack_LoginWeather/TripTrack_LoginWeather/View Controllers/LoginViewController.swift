@@ -33,6 +33,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     handler: nil)
                 
                 alertController.addAction(cancelAction)
+                present(alertController, animated: true)
             }
         }
         

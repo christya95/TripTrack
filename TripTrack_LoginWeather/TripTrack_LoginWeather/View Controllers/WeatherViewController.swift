@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var lblTemp: UILabel?
     @IBOutlet var lblHumidity: UILabel?
@@ -9,6 +9,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lblCity: UILabel?
     @IBOutlet var tfLat: UITextField?
     @IBOutlet var tfLon: UITextField?
+    
+    @IBOutlet var btnFlights : UIBarButtonItem!
+    @IBOutlet var btnWeather : UIBarButtonItem!
+    @IBOutlet var btnHotels : UIBarButtonItem!
+    @IBOutlet var btnNews : UIBarButtonItem!
+    @IBOutlet var btnFood : UIBarButtonItem!
+    @IBOutlet var btnAttractions : UIBarButtonItem!
     
     let API_KEY = "appid=133ee0d47ced5bf56acbd5e45eea6dc5"
     var latInput = ""
@@ -117,4 +124,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 task.resume()
                 return [tempMax,humid,wind,country]
             }
+    
+    @IBAction func onRestaurantButtonClick() {
+        performSegue(withIdentifier: "weatherToRestaurants", sender: self)
+    }
+    
+    @IBAction func onNewsButtonClick() {
+        performSegue(withIdentifier: "weatherToNews", sender: self)
+    }
+    
+    @IBAction func onFlightsButtonClick() {
+        performSegue(withIdentifier: "weatherToFlights", sender: self)
+    }
+    
+    @IBAction func onAttractionsButtonClick() {
+        performSegue(withIdentifier: "weatherToAttractions", sender: self)
+    }
+    
+    @IBAction func onHotelsButtonClick() {
+        performSegue(withIdentifier: "weatherToHotels", sender: self)
+    }
 }

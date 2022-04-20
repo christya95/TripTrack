@@ -8,12 +8,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TripTrack_LoginWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="TripTrack_LoginWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="xtD-eI-nEk">
@@ -110,17 +110,68 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="keZ-fA-PUu">
+                                <rect key="frame" x="0.0" y="834" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" image="plane" width="65" id="k5n-fX-1ds">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onFlightsButtonClick" destination="BYZ-38-t0r" id="FQW-YL-IGt"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="white-cloud-icon-png-1" width="65" id="fnU-6K-340">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="215-2156627_hotel-white-icon-png" width="65" id="btx-9K-g0C">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onHotelsButtonClick" destination="BYZ-38-t0r" id="kD4-zP-Fqa"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="news-icon-18-256" width="65" id="T46-s3-94f">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onNewsButtonClick" destination="BYZ-38-t0r" id="ocT-jo-6SP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="icon" width="65" id="Mbc-nf-o60">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onRestaurantButtonClick" destination="BYZ-38-t0r" id="UVK-bw-FUF"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="buy-tickets-icon-ticket-icon-white-11553402880yht7fivo98" width="65" id="DJb-3f-D74">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onAttractionsButtonClick" destination="BYZ-38-t0r" id="yiy-kt-tuT"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.80725044010000002" green="0.89742535349999997" blue="0.60386353729999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="btnAttractions" destination="DJb-3f-D74" id="qIK-zN-fWU"/>
+                        <outlet property="btnFlights" destination="k5n-fX-1ds" id="KDh-2c-lpZ"/>
+                        <outlet property="btnFood" destination="Mbc-nf-o60" id="bMz-wq-mzN"/>
+                        <outlet property="btnHotels" destination="btx-9K-g0C" id="pA1-1H-bDg"/>
+                        <outlet property="btnNews" destination="T46-s3-94f" id="0PU-Cb-WLL"/>
+                        <outlet property="btnWeather" destination="fnU-6K-340" id="heM-Ix-E4A"/>
                         <outlet property="lblCity" destination="57S-Hp-J3Q" id="UNS-sH-yer"/>
                         <outlet property="lblHumidity" destination="bbZ-nA-HDT" id="iwq-yt-p3I"/>
                         <outlet property="lblTemp" destination="az3-Wr-UG4" id="uvn-8s-JTx"/>
                         <outlet property="lblWind" destination="qwc-WW-Q6Z" id="82W-if-Q3L"/>
                         <outlet property="tfLat" destination="Xm7-US-byj" id="k5a-Sg-QwY"/>
                         <outlet property="tfLon" destination="N1w-7X-T7z" id="gJd-Az-nT5"/>
+                        <segue destination="uUV-8J-xew" kind="presentation" identifier="weatherToRestaurants" id="lBK-RP-b4N"/>
+                        <segue destination="wds-ZS-kZb" kind="presentation" identifier="weatherToHotels" id="YHn-0N-ad6"/>
+                        <segue destination="mLR-Dd-9SG" kind="presentation" identifier="weatherToNews" id="HVu-3Q-mhz"/>
+                        <segue destination="Kw1-20-YGJ" kind="presentation" identifier="weatherToAttractions" id="IqQ-MB-ssX"/>
+                        <segue destination="88m-rx-K3T" kind="presentation" identifier="weatherToFlights" id="nOB-Rn-Yl1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -130,9 +181,9 @@
         <!--Create Account View Controller-->
         <scene sceneID="iiT-K1-UlE">
             <objects>
-                <viewController id="rxN-NU-0mS" customClass="CreateAccountViewController" customModule="TripTrack_LoginWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="rxN-NU-0mS" customClass="CreateAccountViewController" customModule="TripTrack_LoginWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UlP-au-9jX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="XaR-1b-264">
@@ -183,14 +234,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfb-I3-CdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-819" y="152"/>
+            <point key="canvasLocation" x="-807" y="100"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="d1X-pF-W11">
             <objects>
-                <viewController id="nd0-Gi-haY" customClass="LoginViewController" customModule="TripTrack_LoginWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="nd0-Gi-haY" customClass="LoginViewController" customModule="TripTrack_LoginWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RIF-MT-xAQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="C9M-Yl-iDz">
@@ -208,6 +259,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="login" destination="nd0-Gi-haY" eventType="touchUpInside" id="lTH-YN-jTC"/>
+                                    <segue destination="Cby-8M-2UZ" kind="presentation" identifier="nextView" id="In8-FO-ZHZ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wOw-vX-0WY">
@@ -232,7 +284,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="28"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="rxN-NU-0mS" kind="presentation" id="r95-QG-n7H"/>
+                                    <segue destination="rxN-NU-0mS" kind="presentation" identifier="unwindToLogin" id="r95-QG-n7H"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Track" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntl-L5-hbM">
@@ -257,128 +309,789 @@
                     <connections>
                         <outlet property="tfPassword" destination="VUN-n9-14C" id="ftl-TM-wOg"/>
                         <outlet property="tfUsername" destination="wOw-vX-0WY" id="mFa-Oq-aIf"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="nextView" id="BIg-yA-1uZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91L-1U-WE6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="163.768115942029" y="99.776785714285708"/>
+            <point key="canvasLocation" x="74" y="100"/>
         </scene>
-        <!--View Controller-->
+        <!--Hotel View Controller-->
         <scene sceneID="Aye-Ru-zUu">
             <objects>
-                <viewController id="wds-ZS-kZb" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="wds-ZS-kZb" customClass="HotelViewController" customModule="TripTrack_LoginWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s1l-hO-gPB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="kre-fu-Dco">
-                                <rect key="frame" x="-39" y="0.0" width="466" height="300"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ONw-Y9-MoL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="202"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hfy-82-YG3">
+                                <rect key="frame" x="0.0" y="832" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" image="plane" width="65" id="pDp-vi-9al">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onFlightsButtonClick" destination="wds-ZS-kZb" id="zwV-i7-Rzu"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="white-cloud-icon-png-1" width="65" id="hMZ-EA-LaU">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onWeatherButtonClick" destination="wds-ZS-kZb" id="S6f-sf-3XC"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="215-2156627_hotel-white-icon-png" width="65" id="a68-Eq-Tz5">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="news-icon-18-256" width="65" id="vYj-6c-9cP">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onNewsButtonClick" destination="wds-ZS-kZb" id="IuJ-d4-9FC"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="icon" width="65" id="YVi-xq-YTu">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onRestaurantButtonClick" destination="wds-ZS-kZb" id="4wg-ew-eAe"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="buy-tickets-icon-ticket-icon-white-11553402880yht7fivo98" width="65" id="ugW-oY-zsR">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onAttractionsButtonClick" destination="wds-ZS-kZb" id="mB7-qX-Aak"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.80725044010000002" green="0.89742535349999997" blue="0.60386353729999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hotels" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPI-3s-rUY">
-                                <rect key="frame" x="0.0" y="174" width="196" height="106"/>
+                                <rect key="frame" x="0.0" y="96" width="196" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="57"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dtH-ks-UaP">
-                                <rect key="frame" x="20" y="280" width="374" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Popular" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQa-WB-qMy">
-                                <rect key="frame" x="20" y="339" width="106" height="62"/>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJ4-kZ-0ck">
+                                <rect key="frame" x="0.0" y="199" width="414" height="633"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hotel-toronto-ritz" translatesAutoresizingMaskIntoConstraints="NO" id="MEW-Gc-Nte">
-                                <rect key="frame" x="20" y="409" width="106" height="106"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="CfO-7g-S2i">
+                                <rect key="frame" x="189" y="436" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hotel-banff-fairmont" translatesAutoresizingMaskIntoConstraints="NO" id="AQE-oi-hPT">
-                                <rect key="frame" x="154" y="409" width="106" height="106"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hotel-halifax-marriott" translatesAutoresizingMaskIntoConstraints="NO" id="jBx-Vu-H8n">
-                                <rect key="frame" x="288" y="409" width="106" height="106"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hotel-montreal-mountStephen" translatesAutoresizingMaskIntoConstraints="NO" id="VA9-fB-haY">
-                                <rect key="frame" x="20" y="586" width="106" height="106"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hotel-vancouver-belmont" translatesAutoresizingMaskIntoConstraints="NO" id="dAf-S3-VN0">
-                                <rect key="frame" x="154" y="586" width="106" height="106"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hotel-qc-Château_Frontenac" translatesAutoresizingMaskIntoConstraints="NO" id="aIO-cn-xgi">
-                                <rect key="frame" x="288" y="586" width="106" height="106"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ritz Carlton, ON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHG-ss-4Oj">
-                                <rect key="frame" x="20" y="523" width="106" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fairmont, AB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgI-As-pmp">
-                                <rect key="frame" x="154" y="523" width="106" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Marriott, NS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmW-xT-cUs">
-                                <rect key="frame" x="288" y="523" width="106" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mt.Stephen, QC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4K-5s-Ouv">
-                                <rect key="frame" x="20" y="700" width="106" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Belmont, BC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghB-By-GFK">
-                                <rect key="frame" x="154" y="700" width="106" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Frontenac, QC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUo-nr-uBT">
-                                <rect key="frame" x="288" y="700" width="106" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="color" red="0.32060140370000001" green="0.47649848459999999" blue="0.35525509719999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KbP-Jr-Z4i"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="activity" destination="CfO-7g-S2i" id="kI4-Gg-phc"/>
+                        <outlet property="btnAttractions" destination="ugW-oY-zsR" id="Hd1-V4-8Ta"/>
+                        <outlet property="btnFlights" destination="pDp-vi-9al" id="acQ-4x-vSy"/>
+                        <outlet property="btnFood" destination="YVi-xq-YTu" id="U8c-C1-t2O"/>
+                        <outlet property="btnHotels" destination="a68-Eq-Tz5" id="oke-zX-Pfs"/>
+                        <outlet property="btnNews" destination="vYj-6c-9cP" id="ogT-Qe-O8h"/>
+                        <outlet property="btnWeather" destination="hMZ-EA-LaU" id="zWG-Z9-0a9"/>
+                        <outlet property="webPage" destination="fJ4-kZ-0ck" id="27Y-GO-tpP"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="hotelToWeather" id="bwQ-mM-wcp"/>
+                        <segue destination="uUV-8J-xew" kind="presentation" identifier="hotelToRestaurants" id="vjx-wD-hKw"/>
+                        <segue destination="mLR-Dd-9SG" kind="presentation" identifier="hotelToNews" id="4jU-LS-LmI"/>
+                        <segue destination="Kw1-20-YGJ" kind="presentation" identifier="hotelToAttractions" id="vt0-6K-lph"/>
+                        <segue destination="88m-rx-K3T" kind="presentation" identifier="hotelToFlights" id="uIe-Ts-4KS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oto-lp-S2i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="163.768115942029" y="821.65178571428567"/>
         </scene>
+        <!--Restaurant View Controller-->
+        <scene sceneID="2J4-zf-32i">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="uUV-8J-xew" customClass="RestaurantViewController" customModule="TripTrack_LoginWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mfb-tC-nOt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="hQk-dj-jud">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sBb-JA-Vpl">
+                                <rect key="frame" x="0.0" y="831" width="413" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" image="plane" width="65" id="W38-wF-KyQ">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onFlightsButtonClick" destination="uUV-8J-xew" id="Gbh-ua-fdZ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="white-cloud-icon-png-1" width="65" id="ekz-ad-9BR">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onWeatherButtonClick" destination="uUV-8J-xew" id="fGa-Fy-e4N"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="215-2156627_hotel-white-icon-png" width="65" id="XFm-ZK-PfB">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onHotelsButtonClick" destination="uUV-8J-xew" id="Gqn-R8-DXC"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="news-icon-18-256" width="65" id="W9C-ya-aaa">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onNewsButtonClick" destination="uUV-8J-xew" id="x6f-GX-ymd"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="icon" width="65" id="BUF-bf-ggs">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="buy-tickets-icon-ticket-icon-white-11553402880yht7fivo98" width="65" id="opb-cc-OGv">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onAttractionsButtonClick" destination="uUV-8J-xew" id="LK1-DB-WdN"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.80725044010000002" green="0.89742535349999997" blue="0.60386353729999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Khv-aJ-1KT">
+                                <rect key="frame" x="0.0" y="113" width="278" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Restaurants">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="48" name="ComicSansMS"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="79a-wJ-9ss">
+                                <rect key="frame" x="0.0" y="195" width="414" height="636"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="JOE-6f-gDd">
+                                <rect key="frame" x="189" y="445" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.32060140370000001" green="0.47649848459999999" blue="0.35525509719999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="j2E-Pv-Mcz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="activity" destination="JOE-6f-gDd" id="V2f-Od-R2I"/>
+                        <outlet property="btnAttractions" destination="opb-cc-OGv" id="sTG-0h-Bxl"/>
+                        <outlet property="btnFlights" destination="W38-wF-KyQ" id="t2e-Aa-KbN"/>
+                        <outlet property="btnFood" destination="BUF-bf-ggs" id="Dmy-gb-IHU"/>
+                        <outlet property="btnHotels" destination="XFm-ZK-PfB" id="IDZ-2N-Fz4"/>
+                        <outlet property="btnNews" destination="W9C-ya-aaa" id="5QZ-dG-Vyn"/>
+                        <outlet property="btnWeather" destination="ekz-ad-9BR" id="5wd-c5-MrS"/>
+                        <outlet property="webPage" destination="79a-wJ-9ss" id="ZIv-tf-i6Z"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="restaurantToWeather" id="DLd-Lk-8ia"/>
+                        <segue destination="wds-ZS-kZb" kind="presentation" identifier="restaurantToHotels" id="9CU-5r-6yH"/>
+                        <segue destination="mLR-Dd-9SG" kind="presentation" identifier="restaurantToNews" id="vzz-zd-Lyc"/>
+                        <segue destination="Kw1-20-YGJ" kind="presentation" identifier="restaurantToAttractions" id="UdF-XU-xR7"/>
+                        <segue destination="88m-rx-K3T" kind="presentation" identifier="restaurantToFlights" id="czq-D8-N9A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ZU-oX-Rdh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1940.5797101449277" y="99.776785714285708"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="D5v-Ic-N6I">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="Cby-8M-2UZ" customClass="HomeViewController" customModule="TripTrack_LoginWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p4F-c4-xx1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="8OG-5h-tBF">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="322"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Explore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdT-bG-gVo">
+                                <rect key="frame" x="20" y="385" width="95" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="toronto" translatesAutoresizingMaskIntoConstraints="NO" id="Vcl-lo-5iN">
+                                <rect key="frame" x="20" y="449" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Toronto, ON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDZ-EY-nLE">
+                                <rect key="frame" x="25" y="557" width="93" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vancouver" translatesAutoresizingMaskIntoConstraints="NO" id="FNV-gT-deF">
+                                <rect key="frame" x="157" y="449" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vancouver, BC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vN-6V-Rxa">
+                                <rect key="frame" x="153" y="556" width="111" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="banff" translatesAutoresizingMaskIntoConstraints="NO" id="x5r-Jt-6g4">
+                                <rect key="frame" x="294" y="449" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Banff, AB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpR-WT-oHR">
+                                <rect key="frame" x="308" y="555" width="71" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="halifax" translatesAutoresizingMaskIntoConstraints="NO" id="vq2-qu-yw6">
+                                <rect key="frame" x="20" y="605" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Halifax, NS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOk-KB-Mic">
+                                <rect key="frame" x="29" y="713" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yellowknife" translatesAutoresizingMaskIntoConstraints="NO" id="JAt-jf-I62">
+                                <rect key="frame" x="157" y="605" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yellowknife, NWT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQ3-hj-JZz">
+                                <rect key="frame" x="141" y="713" width="133" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="montreal" translatesAutoresizingMaskIntoConstraints="NO" id="rdT-xD-5Vy">
+                                <rect key="frame" x="294" y="605" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Montreal, QC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QS-dD-Ais">
+                                <rect key="frame" x="293" y="713" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-6b-dtH">
+                                <rect key="frame" x="0.0" y="831" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" image="plane" width="65" id="iuT-2h-Iet">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onFlightsButtonClick" destination="Cby-8M-2UZ" id="JVV-Qf-4kM"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="white-cloud-icon-png-1" width="65" id="LJ4-XY-9Sf">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onWeatherButtonClick" destination="Cby-8M-2UZ" id="E7W-Xf-gu1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="215-2156627_hotel-white-icon-png" width="65" id="urb-AC-uij">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onHotelsButtonClick" destination="Cby-8M-2UZ" id="Igu-iI-osk"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="news-icon-18-256" width="65" id="wT6-dT-9H9">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onNewsButtonClick" destination="Cby-8M-2UZ" id="V4A-FM-AB8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="icon" width="65" id="OYb-Xz-YM9">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onRestaurantButtonClick" destination="Cby-8M-2UZ" id="ZHK-3N-g7Q"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="buy-tickets-icon-ticket-icon-white-11553402880yht7fivo98" width="65" id="BKF-rN-ntx">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onAttractionsButtonClick" destination="Cby-8M-2UZ" id="Xzb-sB-QXt"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.80725044010000002" green="0.89742535349999997" blue="0.60386353729999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </toolbar>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Enter a location" translatesAutoresizingMaskIntoConstraints="NO" id="pcc-4m-UHH">
+                                <rect key="frame" x="20" y="300" width="374" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIG-3y-Fh6">
+                                <rect key="frame" x="16" y="210" width="248" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Where To?">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="48" name="ComicSansMS"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OP5-Lo-xgF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="btnAttractions" destination="BKF-rN-ntx" id="FUS-nL-tFS"/>
+                        <outlet property="btnFlights" destination="iuT-2h-Iet" id="gcm-od-Nfd"/>
+                        <outlet property="btnFood" destination="OYb-Xz-YM9" id="gtR-cC-mXm"/>
+                        <outlet property="btnHotels" destination="urb-AC-uij" id="Wr5-r6-CZo"/>
+                        <outlet property="btnNews" destination="wT6-dT-9H9" id="5wD-G2-b8C"/>
+                        <outlet property="btnWeather" destination="LJ4-XY-9Sf" id="Ull-78-gjk"/>
+                        <outlet property="imgBanff" destination="x5r-Jt-6g4" id="OtG-4r-7ZR"/>
+                        <outlet property="imgHalifax" destination="vq2-qu-yw6" id="t8R-g2-kjv"/>
+                        <outlet property="imgMontreal" destination="rdT-xD-5Vy" id="rAO-ed-zN2"/>
+                        <outlet property="imgToronto" destination="Vcl-lo-5iN" id="cyy-cS-tpk"/>
+                        <outlet property="imgVancouver" destination="FNV-gT-deF" id="Zru-qn-78n"/>
+                        <outlet property="imgYellowknife" destination="JAt-jf-I62" id="TQ1-ev-0rk"/>
+                        <outlet property="searchbar" destination="pcc-4m-UHH" id="R35-SR-10R"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="homeToWeather" id="zwC-sb-qHC"/>
+                        <segue destination="uUV-8J-xew" kind="presentation" identifier="homeToRestaurants" id="8z1-TP-MPU"/>
+                        <segue destination="wds-ZS-kZb" kind="presentation" identifier="homeToHotels" id="pEr-9Y-D1h"/>
+                        <segue destination="mLR-Dd-9SG" kind="presentation" identifier="homeToNews" id="NZC-pR-Kll"/>
+                        <segue destination="Kw1-20-YGJ" kind="presentation" identifier="homeToAttractions" id="YxI-W7-mlO"/>
+                        <segue destination="88m-rx-K3T" kind="presentation" identifier="homeToFlights" id="EhB-iO-Gob"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NAH-4E-hUy" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="822"/>
+        </scene>
+        <!--News View Controller-->
+        <scene sceneID="GVS-3y-Pec">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="mLR-Dd-9SG" customClass="NewsViewController" customModule="TripTrack_LoginWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZnP-ff-peK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="oqy-bp-KED">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="204"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nqH-b6-jvW">
+                                <rect key="frame" x="-1" y="833" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" image="plane" width="65" id="8wg-nF-0n3">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onFlightsButtonClick" destination="mLR-Dd-9SG" id="Kd7-u8-Ted"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="white-cloud-icon-png-1" width="65" id="KJT-Q1-9oT">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onWeatherButtonClick" destination="mLR-Dd-9SG" id="qAa-SV-sl3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="215-2156627_hotel-white-icon-png" width="65" id="r5n-tZ-siF">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onHotelsButtonClick" destination="mLR-Dd-9SG" id="EqF-gg-2LH"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="news-icon-18-256" width="65" id="xEs-fN-6if">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="icon" width="65" id="HFG-Y2-XOJ">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onRestaurantButtonClick" destination="mLR-Dd-9SG" id="Tcz-EH-9bh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="buy-tickets-icon-ticket-icon-white-11553402880yht7fivo98" width="65" id="ObQ-GH-EWL">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onAttractionsButtonClick" destination="mLR-Dd-9SG" id="hWP-uj-qqw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.80725044010000002" green="0.89742535349999997" blue="0.60386353729999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhE-7I-OuM">
+                                <rect key="frame" x="20" y="121" width="131" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="News">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="48" name="ComicSansMS"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlg-Zc-vOK">
+                                <rect key="frame" x="0.0" y="200" width="413" height="633"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Rau-9z-qF0">
+                                <rect key="frame" x="189" y="452" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.32060140370000001" green="0.47649848459999999" blue="0.35525509719999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CwJ-JI-cDc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="activity" destination="Rau-9z-qF0" id="0ig-W9-DnL"/>
+                        <outlet property="btnAttractions" destination="ObQ-GH-EWL" id="W4M-5g-z96"/>
+                        <outlet property="btnFlights" destination="8wg-nF-0n3" id="zx3-xK-nTw"/>
+                        <outlet property="btnFood" destination="HFG-Y2-XOJ" id="xc4-a0-Z00"/>
+                        <outlet property="btnHotels" destination="r5n-tZ-siF" id="Y6a-fo-95L"/>
+                        <outlet property="btnNews" destination="xEs-fN-6if" id="B0t-nw-SRd"/>
+                        <outlet property="btnWeather" destination="KJT-Q1-9oT" id="cBM-za-TiV"/>
+                        <outlet property="webPage" destination="dlg-Zc-vOK" id="AlR-15-EnU"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="newsToWeather" id="XMs-rN-k1Z"/>
+                        <segue destination="uUV-8J-xew" kind="presentation" identifier="newsToRestaurants" id="fqB-B0-Umw"/>
+                        <segue destination="wds-ZS-kZb" kind="presentation" identifier="newsToHotels" id="DP1-wg-Lbs"/>
+                        <segue destination="Kw1-20-YGJ" kind="presentation" identifier="newsToAttractions" id="Xit-U1-XTJ"/>
+                        <segue destination="88m-rx-K3T" kind="presentation" identifier="newsToFlights" id="1EX-wf-ee9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a4P-Wl-a2a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1918.840579710145" y="821.65178571428567"/>
+        </scene>
+        <!--Flight View Controller-->
+        <scene sceneID="xBH-4I-j7f">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="88m-rx-K3T" customClass="FlightViewController" customModule="TripTrack_LoginWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ttw-Wb-lxt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Uhm-lf-nTo">
+                                <rect key="frame" x="-24" y="0.0" width="465" height="226"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="news-icon-18-256" translatesAutoresizingMaskIntoConstraints="NO" id="oyq-9K-5dV">
+                                <rect key="frame" x="228" y="818" width="49" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="pe9-x9-9MG">
+                                <rect key="frame" x="287" y="818" width="49" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="215-2156627_hotel-white-icon-png" translatesAutoresizingMaskIntoConstraints="NO" id="N9k-vc-LqN">
+                                <rect key="frame" x="147" y="818" width="49" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="white-cloud-icon-png-1" translatesAutoresizingMaskIntoConstraints="NO" id="en8-gn-mLV">
+                                <rect key="frame" x="90" y="818" width="49" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jh3-9G-YFp">
+                                <rect key="frame" x="144" y="755" width="121" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Find Flights" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.8156862855" green="0.89019608500000003" blue="0.64313727620000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="getParamsWithSender:" destination="88m-rx-K3T" eventType="touchUpInside" id="9TA-F9-bxv"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="r6T-de-a4Y">
+                                <rect key="frame" x="197" y="537" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plane" translatesAutoresizingMaskIntoConstraints="NO" id="sUr-r1-oT5">
+                                <rect key="frame" x="20" y="818" width="49" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Flights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Vp-ne-707">
+                                <rect key="frame" x="17" y="138" width="156" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Origin Code" translatesAutoresizingMaskIntoConstraints="NO" id="wjD-Ps-pER">
+                                <rect key="frame" x="16" y="200" width="167" height="51"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Destination Code" translatesAutoresizingMaskIntoConstraints="NO" id="9Cm-OK-5fh">
+                                <rect key="frame" x="225" y="200" width="166" height="51"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Kc-fJ-kRH">
+                                <rect key="frame" x="-3" y="251" width="417" height="496"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cOd-dk-UYX">
+                                <rect key="frame" x="-4" y="834" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" image="plane" width="65" id="7r8-hr-cxO">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="white-cloud-icon-png-1" width="65" id="mMU-Ms-OmG">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onWeatherButtonClick" destination="88m-rx-K3T" id="6Qx-3O-5HO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="215-2156627_hotel-white-icon-png" width="65" id="BDs-4h-Qgz">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onHotelsButtonClick" destination="88m-rx-K3T" id="2Ws-MA-prl"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="news-icon-18-256" width="65" id="jjj-jv-Ksi">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onNewsButtonClick" destination="88m-rx-K3T" id="oaZ-cL-f1h"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="icon" width="65" id="SLF-xd-lPF">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onRestaurantButtonClick" destination="88m-rx-K3T" id="Wkg-9A-dfB"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="buy-tickets-icon-ticket-icon-white-11553402880yht7fivo98" width="65" id="7ix-hQ-Cws">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onAttractionsButtonClick" destination="88m-rx-K3T" id="dvb-dB-IHP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.80725044010000002" green="0.89742535349999997" blue="0.60386353729999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sSG-nW-6WY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="activity" destination="r6T-de-a4Y" id="XX6-rf-5fE"/>
+                        <outlet property="btn" destination="Jh3-9G-YFp" id="Pti-ek-iXK"/>
+                        <outlet property="btnAttractions" destination="7ix-hQ-Cws" id="7sg-pA-dbB"/>
+                        <outlet property="btnFlights" destination="7r8-hr-cxO" id="ju7-Oh-XAQ"/>
+                        <outlet property="btnFood" destination="SLF-xd-lPF" id="u9h-qh-gm2"/>
+                        <outlet property="btnHotels" destination="BDs-4h-Qgz" id="Sak-kD-nid"/>
+                        <outlet property="btnNews" destination="jjj-jv-Ksi" id="msN-xi-Vhm"/>
+                        <outlet property="btnWeather" destination="mMU-Ms-OmG" id="HEI-z2-Oic"/>
+                        <outlet property="destination" destination="9Cm-OK-5fh" id="bck-Qe-ZPC"/>
+                        <outlet property="origin" destination="wjD-Ps-pER" id="3JH-gL-VrC"/>
+                        <outlet property="webView" destination="9Kc-fJ-kRH" id="b4E-MM-ebD"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="flightsToWeather" id="jWM-h0-Q5a"/>
+                        <segue destination="uUV-8J-xew" kind="presentation" identifier="flightsToRestaurants" id="32X-8D-0zH"/>
+                        <segue destination="wds-ZS-kZb" kind="presentation" identifier="flightsToHotels" id="tCN-pA-Bls"/>
+                        <segue destination="mLR-Dd-9SG" kind="presentation" identifier="flightsToNews" id="E3o-Zh-2fq"/>
+                        <segue destination="Kw1-20-YGJ" kind="presentation" identifier="flightsToAttractions" id="po4-ho-Fe4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPO-6X-Aut" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1586.9565217391305" y="1552.9017857142856"/>
+        </scene>
+        <!--Attraction View Controller-->
+        <scene sceneID="im7-V8-shO">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="Kw1-20-YGJ" customClass="AttractionViewController" customModule="TripTrack_LoginWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HPg-6N-AzU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="omI-H8-EVO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Lnt-si-eoI">
+                                        <rect key="frame" x="-24" y="0.0" width="465" height="226"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="news-icon-18-256" translatesAutoresizingMaskIntoConstraints="NO" id="0qd-hu-sr9">
+                                        <rect key="frame" x="228" y="828" width="49" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="buy-tickets-icon-ticket-icon-white-11553402880yht7fivo98" translatesAutoresizingMaskIntoConstraints="NO" id="eVp-cV-z2O">
+                                        <rect key="frame" x="345" y="828" width="49" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="Nl6-HK-VYB">
+                                        <rect key="frame" x="287" y="828" width="49" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="215-2156627_hotel-white-icon-png" translatesAutoresizingMaskIntoConstraints="NO" id="sJq-3g-fiP">
+                                        <rect key="frame" x="156" y="828" width="49" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="white-cloud-icon-png-1" translatesAutoresizingMaskIntoConstraints="NO" id="OBo-2u-72u">
+                                        <rect key="frame" x="90" y="828" width="49" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plane" translatesAutoresizingMaskIntoConstraints="NO" id="hJ2-Vb-0xq">
+                                        <rect key="frame" x="20" y="828" width="49" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rGU-qm-2EC">
+                                        <rect key="frame" x="-3" y="215" width="417" height="613"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="EGV-nv-wrq">
+                                        <rect key="frame" x="197" y="538" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attractions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nk-jX-1L4">
+                                        <rect key="frame" x="17" y="136" width="270" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="55"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WNo-TC-Dub">
+                                        <rect key="frame" x="0.0" y="828" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <items>
+                                            <barButtonItem title="Item" image="plane" width="65" id="Qzi-Ip-RQZ">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="onFlightsButtonClick" destination="Kw1-20-YGJ" id="nph-UC-PwK"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Item" image="white-cloud-icon-png-1" width="65" id="a5c-eg-dc7">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="onWeatherButtonClick" destination="Kw1-20-YGJ" id="NqA-aJ-TgJ"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Item" image="215-2156627_hotel-white-icon-png" width="65" id="VMY-xk-7Wg">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="onHotelsButtonClick" destination="Kw1-20-YGJ" id="d5A-a8-nfj"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Item" image="news-icon-18-256" width="65" id="4JQ-eT-xBb">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="onNewsButtonClick" destination="Kw1-20-YGJ" id="h6w-hI-lZO"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Item" image="icon" width="65" id="RTi-SR-MuU">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="onRestaurantButtonClick" destination="Kw1-20-YGJ" id="xXZ-tq-GoQ"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Item" image="buy-tickets-icon-ticket-icon-white-11553402880yht7fivo98" width="65" id="VQg-iC-4hX">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </barButtonItem>
+                                        </items>
+                                        <color key="barTintColor" red="0.80725044010000002" green="0.89742535349999997" blue="0.60386353729999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </toolbar>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="K2k-mK-BD6"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rR0-bJ-4hf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="activity" destination="EGV-nv-wrq" id="dsC-05-uUV"/>
+                        <outlet property="btnAttractions" destination="VQg-iC-4hX" id="ELo-9z-5rH"/>
+                        <outlet property="btnFlights" destination="Qzi-Ip-RQZ" id="z0Q-QI-je6"/>
+                        <outlet property="btnFood" destination="RTi-SR-MuU" id="L4x-UL-BAk"/>
+                        <outlet property="btnHotels" destination="VMY-xk-7Wg" id="xBh-mn-3F3"/>
+                        <outlet property="btnNews" destination="4JQ-eT-xBb" id="8Am-u3-u40"/>
+                        <outlet property="btnWeather" destination="a5c-eg-dc7" id="d5S-c2-V1q"/>
+                        <outlet property="webView" destination="rGU-qm-2EC" id="m0t-Ra-iTS"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="attractionsToWeather" id="kOy-Hs-i92"/>
+                        <segue destination="uUV-8J-xew" kind="presentation" identifier="attractionsToRestaurants" id="f3P-Gi-stu"/>
+                        <segue destination="wds-ZS-kZb" kind="presentation" identifier="attractionsToHotels" id="Y9U-RW-1Hb"/>
+                        <segue destination="mLR-Dd-9SG" kind="presentation" identifier="attractionsToNews" id="dGu-yF-JjB"/>
+                        <segue destination="88m-rx-K3T" kind="presentation" identifier="attractionsToFlights" id="xBB-Kq-DEs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="COK-y5-eZL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="556.52173913043487" y="1552.9017857142856"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Xit-U1-XTJ"/>
+        <segue reference="xBB-Kq-DEs"/>
+        <segue reference="dGu-yF-JjB"/>
+        <segue reference="f3P-Gi-stu"/>
+        <segue reference="Y9U-RW-1Hb"/>
+        <segue reference="kOy-Hs-i92"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="215-2156627_hotel-white-icon-png" width="715" height="1201"/>
         <image name="background" width="1080" height="1920"/>
-        <image name="hotel-banff-fairmont" width="1380" height="1035"/>
-        <image name="hotel-halifax-marriott" width="1400" height="933"/>
-        <image name="hotel-montreal-mountStephen" width="1380" height="690"/>
-        <image name="hotel-qc-Château_Frontenac" width="3375" height="2196"/>
-        <image name="hotel-toronto-ritz" width="460" height="258"/>
-        <image name="hotel-vancouver-belmont" width="1280" height="853"/>
+        <image name="banff" width="92" height="92"/>
+        <image name="buy-tickets-icon-ticket-icon-white-11553402880yht7fivo98" width="280" height="222"/>
+        <image name="halifax" width="92" height="92"/>
+        <image name="icon" width="256" height="256"/>
+        <image name="montreal" width="92" height="92"/>
+        <image name="news-icon-18-256" width="256" height="256"/>
+        <image name="plane" width="240" height="240"/>
+        <image name="toronto" width="92" height="92"/>
+        <image name="vancouver" width="92" height="92"/>
+        <image name="white-cloud-icon-png-1" width="256" height="256"/>
+        <image name="yellowknife" width="92" height="92"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
