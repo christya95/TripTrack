@@ -15,6 +15,10 @@
 		D58AAD05280E25AE00811876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D58AAD03280E25AE00811876 /* LaunchScreen.storyboard */; };
 		D5FFB848280FBDC700CB6178 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FFB847280FBDC700CB6178 /* LocationService.swift */; };
 		D5FFB84A280FBE3300CB6178 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FFB849280FBE3300CB6178 /* WeatherService.swift */; };
+		D5FFB84C280FCE6500CB6178 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FFB84B280FCE6400CB6178 /* LoginViewController.swift */; };
+		D5FFB850280FDE9B00CB6178 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FFB84F280FDE9A00CB6178 /* User.swift */; };
+		D5FFB855280FE08200CB6178 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FFB854280FE07300CB6178 /* libsqlite3.0.tbd */; };
+		D5FFB856280FE08200CB6178 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FFB853280FE07300CB6178 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,11 @@
 		D58AAD06280E25AE00811876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5FFB847280FBDC700CB6178 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		D5FFB849280FBE3300CB6178 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		D5FFB84B280FCE6400CB6178 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D5FFB84F280FDE9A00CB6178 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D5FFB853280FE07300CB6178 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		D5FFB854280FE07300CB6178 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		D5FFB858280FF3F200CB6178 /* UserDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = UserDB.db; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5FFB856280FE08200CB6178 /* libsqlite3.tbd in Frameworks */,
+				D5FFB855280FE08200CB6178 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +57,7 @@
 			children = (
 				D58AACF7280E25AC00811876 /* TripTrack_LoginWeather */,
 				D58AACF6280E25AC00811876 /* Products */,
+				D5FFB852280FE07300CB6178 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +72,7 @@
 		D58AACF7280E25AC00811876 /* TripTrack_LoginWeather */ = {
 			isa = PBXGroup;
 			children = (
+				D5FFB84D280FD86000CB6178 /* Database */,
 				D5FFB846280FBDA900CB6178 /* Services */,
 				D58AAD0E280E25E500811876 /* Storyboards */,
 				D58AAD0D280E25D900811876 /* View Controllers */,
@@ -75,6 +88,7 @@
 			children = (
 				D58AACFA280E25AC00811876 /* SceneDelegate.swift */,
 				D58AACF8280E25AC00811876 /* AppDelegate.swift */,
+				D5FFB84F280FDE9A00CB6178 /* User.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -83,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				D58AACFC280E25AC00811876 /* ViewController.swift */,
+				D5FFB84B280FCE6400CB6178 /* LoginViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -103,6 +118,23 @@
 				D5FFB849280FBE3300CB6178 /* WeatherService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		D5FFB84D280FD86000CB6178 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				D5FFB858280FF3F200CB6178 /* UserDB.db */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		D5FFB852280FE07300CB6178 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5FFB854280FE07300CB6178 /* libsqlite3.0.tbd */,
+				D5FFB853280FE07300CB6178 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,11 +208,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5FFB84C280FCE6500CB6178 /* LoginViewController.swift in Sources */,
 				D5FFB84A280FBE3300CB6178 /* WeatherService.swift in Sources */,
 				D58AACFD280E25AC00811876 /* ViewController.swift in Sources */,
 				D58AACF9280E25AC00811876 /* AppDelegate.swift in Sources */,
 				D5FFB848280FBDC700CB6178 /* LocationService.swift in Sources */,
 				D58AACFB280E25AC00811876 /* SceneDelegate.swift in Sources */,
+				D5FFB850280FDE9B00CB6178 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

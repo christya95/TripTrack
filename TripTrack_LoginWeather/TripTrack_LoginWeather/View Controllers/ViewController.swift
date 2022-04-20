@@ -75,20 +75,12 @@ class ViewController: UIViewController {
 
     func apiCall() {
 
-        struct Weather: Decodable {
-//            let DailyForecasts: [String]
-//            struct DailyForecasts: Decodable{
-//                struct Temperature: Decodable {
-//
-////                       struct Maximum: Decodable {
-////                           let Value: String
-////                       }
-//               }
-////            }
-//            let temperature: Temperature
-//        }
-//        struct Weather: Decodable {
-            let Headline: String
+        struct Json: Decodable {
+            struct Headline: Decodable{
+                let Text: String
+            }
+
+            let headline: Headline
 ////
         }
 //
@@ -100,9 +92,9 @@ class ViewController: UIViewController {
         let url = URL(string: "https://dataservice.accuweather.com/forecasts/v1/daily/1day/49553?apikey=ij8qxK4AOxpnXGsz4DgDfQLpjjllUFKw&details=false&metric=true")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
                     if let data = data {
-                        if let responseEntity = try? JSONDecoder().decode(Weather.self, from: data) {
+                        if let responseEntity = try? JSONDecoder().decode(Json.Headline.self, from: data) {
                             print("THIS IS A TEST \n")
-                            print(responseEntity.Headline)
+                            print(responseEntity.Text)
 //                            DispatchQueue.main.async {
 //                                self.lblCity?.text = responseEntity.temperature.maximum[0]
 //                            }
