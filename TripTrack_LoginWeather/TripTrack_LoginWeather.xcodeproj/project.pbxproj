@@ -19,6 +19,8 @@
 		D5FFB850280FDE9B00CB6178 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FFB84F280FDE9A00CB6178 /* User.swift */; };
 		D5FFB855280FE08200CB6178 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FFB854280FE07300CB6178 /* libsqlite3.0.tbd */; };
 		D5FFB856280FE08200CB6178 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FFB853280FE07300CB6178 /* libsqlite3.tbd */; };
+		D5FFB85A28101B2800CB6178 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FFB85928101B2700CB6178 /* CreateAccountViewController.swift */; };
+		D5FFB85C28102CBD00CB6178 /* HotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FFB85B28102CBD00CB6178 /* HotelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		D5FFB853280FE07300CB6178 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D5FFB854280FE07300CB6178 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		D5FFB858280FF3F200CB6178 /* UserDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = UserDB.db; sourceTree = "<group>"; };
+		D5FFB85928101B2700CB6178 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		D5FFB85B28102CBD00CB6178 /* HotelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 			children = (
 				D58AACFC280E25AC00811876 /* ViewController.swift */,
 				D5FFB84B280FCE6400CB6178 /* LoginViewController.swift */,
+				D5FFB85928101B2700CB6178 /* CreateAccountViewController.swift */,
+				D5FFB85B28102CBD00CB6178 /* HotelViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -209,9 +215,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5FFB84C280FCE6500CB6178 /* LoginViewController.swift in Sources */,
+				D5FFB85C28102CBD00CB6178 /* HotelViewController.swift in Sources */,
 				D5FFB84A280FBE3300CB6178 /* WeatherService.swift in Sources */,
 				D58AACFD280E25AC00811876 /* ViewController.swift in Sources */,
 				D58AACF9280E25AC00811876 /* AppDelegate.swift in Sources */,
+				D5FFB85A28101B2800CB6178 /* CreateAccountViewController.swift in Sources */,
 				D5FFB848280FBDC700CB6178 /* LocationService.swift in Sources */,
 				D58AACFB280E25AC00811876 /* SceneDelegate.swift in Sources */,
 				D5FFB850280FDE9B00CB6178 /* User.swift in Sources */,
